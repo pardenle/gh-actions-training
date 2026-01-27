@@ -1,26 +1,40 @@
 name: Demo trigger events
-
 on:
   # Webhook events
   push:
-    branches: 
+    branches:
       - main
-      - feat/* #is this real regex?
-  pull_request:
+      - feat/*
+  pull_request: 
     branches:
       - main
   issues:
-    types: 
+    types:
       - opened
       - closed
-  # schedule events
+  # Scheduled events
   schedule:
-    - cron: 0 0 * * *  
-  # manual events
- 
+    - cron: 0 0 * * *
+    - cron: 0 9 * * 0
+  # Manual events
+  workflow_dispatch: 
+    inputs:
+      yourName:
+        required: true
+        default: My friend
+      areYouFeelingGood:
+        required: true
+        type: boolean
+      howDoYouFindGithubActions:
+        required: false
+        type: choice
+        options:
+          - Awesome
+          - Okay
+          - Na
 jobs:
   Greeting:
     runs-on: ubuntu-latest
     steps:
       - name: Greeting step
-        run: echo "Hello World!"
+        run: echo Hello world!
