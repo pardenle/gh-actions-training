@@ -37,8 +37,8 @@ on:
           - Okay
           - Na
 env:
-  MY_NAME = "Nilesh"
-  GREETING = "Hallo"
+  MY_NAME: Nilesh
+  GREETING: Hallo
 
 jobs:
   Greeting:
@@ -46,15 +46,16 @@ jobs:
     steps:
       - name: Greeting step
         run: echo Hello world!
+        if: ${{env.MY_NAME == 'Nilesh'}}
   Greeting2:
     runs-on: ubuntu-latest
     env:
       GREETING: Good morning
     steps:
       - name: "Greeting step (expeting GM Nilesh)"
-        run: echo "${env.GREETING} ${env.MY_NAME}"
+        run: echo ${{env.GREETING}} ${{env.MY_NAME}}
       - name: "Greeting step (expeting GA Nilesh)"
-        run: echo "${env.GREETING} ${env.MY_NAME}"
+        run: echo ${{env.GREETING}} ${{env.MY_NAME}}
         env:
           GREETING: Good Afternoon !
   Job2:
