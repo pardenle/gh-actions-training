@@ -38,3 +38,19 @@ jobs:
     steps:
       - name: Greeting step
         run: echo Hello world!
+  job2:
+    runs-on: utuntu-latest
+    needs:
+    - Greeting
+    steps:
+      - name: Step2
+        run: echo "${{github.actor}} is learning GitHub Actions"
+      - name: Step3
+        run: echo "Great"
+        if: ${{inputs.areYouFeelingGood}}
+      - name: Step4
+        run: echo "NO worries. I am here with you"
+        if:  ${{inputs.howDoYouFindGithubActions}}
+      
+      
+  
