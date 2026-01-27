@@ -52,9 +52,9 @@ jobs:
       GREETING: Good morning
     steps:
       - name: "Greeting step (expeting GM Nilesh)"
-        run: echo "${env.GREETING} ${env.MY_NAME}"
+        run: echo "${env.GREETING}" "${env.MY_NAME}"
       - name: "Greeting step (expeting GA Nilesh)"
-        run: echo "${env.GREETING} ${env.MY_NAME}"
+        run: echo "${env.GREETING}" "${env.MY_NAME}"
         env:
           GREETING: Good Afternoon !
   Job2:
