@@ -1,17 +1,24 @@
 name: Demo trigger events
 
 on:
-  # we have webhook events
-  push: 
+  # Webhook events
+  push:
     branches: 
       - main
-      - feat/*
-  # scheduled events
-  # manual events 
-
+      - feat/* #is this real regex?
+  pull_request:
+    branches:
+      - main
+  issues:
+    types: 
+      - opened
+      - closed
+  # schedule events
+  # manual events
+ 
 jobs:
-  Greeting: 
-      run-on: defaults:
-        steps: 
-          - name: Greeting step
-            run: echo "Hello World"
+  Greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting step
+        run: echo "Hello World!"
