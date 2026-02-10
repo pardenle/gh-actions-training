@@ -40,6 +40,8 @@ jobs:
 
   Job2:
     runs-on: ubuntu-latest
+    env:
+      MY_GREETINGS: Good morning
     needs: [Job1]
     steps:
       - name: Step2
