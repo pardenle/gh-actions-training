@@ -37,6 +37,7 @@ jobs:
     steps:
       - name: Say hello
         run: echo "Hello from Greeting!"
+        if: ${{env.MY_VAR == 'Nilesh'}}
 
   Job2:
     runs-on: ubuntu-latest
